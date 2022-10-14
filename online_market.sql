@@ -59,6 +59,20 @@ CREATE TABLE `category` (
   `cat_description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`cat_id`, `cat_name`, `cat_image`, `cat_status`, `cat_description`) VALUES
+(300, 'Paintings', '..\\templates\\images\\categories\\painting.jpg', 1, 'paintings ranging from 10,000 to upwards of 2 lakh'),
+(404, 'Others', '..\\templates\\images\\categories\\other.jpg', 1, 'some random text to decribe the category others ...acts as a dump if dont fit in any other categories'),
+(405, 'Watches', '..\\templates\\images\\categories\\watch.jpg', 1, 'DESIGNER AND RARE WATCHES '),
+(406, 'Sculptures', '..\\templates\\images\\categories\\sculpture.jpg', 1, 'beautiful sculptures of priceless value'),
+(407, 'Weaponry', '../templates/images/categories/weapons.jpg', 1, 'ancient weapons of historical significance'),
+(409, 'Retro technology', '../templates/images/categories/retro-tech-sounds.jpg', 1, 'A look back at technological devices.'),
+(410, 'Ancient Cutlery', '../templates/images/categories/MA_00564338_k0cm4d.jpg', 1, 'old cutlery used by rulers of famous dynasties or famous people'),
+(411, 'Currency pieces', '../templates/images/categories/img_coin.png', 1, 'Enthusiasts have been known to collect old and outdated currency as a symbol of historic significance');
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +90,14 @@ CREATE TABLE `customers` (
   `cust_phone` bigint(10) NOT NULL,
   `cust_balance` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`cust_id`, `cust_username`, `cust_pass`, `cust_name`, `cust_addr`, `cust_email`, `cust_image`, `cust_phone`, `cust_balance`) VALUES
+(8, 'arshdeep', 12345, 'Arshdeep Singh', 'A4-405 adora akshaya homes', 'arshdeepdgreat@gmail.com', '../templates/images/cust_dp/arshdeep dp.png', 8754541444, 100000),
+(11, 'nirzar', 12345, 'Nirzar Modi', 'vit vellore', 'nirzar@gmail.com', '../templates/images/cust_dp/Annotation 2021-06-03 012855.png', 9000000000, 100000);
 
 -- --------------------------------------------------------
 
@@ -95,6 +117,22 @@ CREATE TABLE `product` (
   `product_desc` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`product_id`, `cat_id`, `seller_id`, `product_name`, `product_price`, `product_img`, `timestamp_add`, `status`, `product_desc`) VALUES
+(13, 300, 14, 'Rose Painting', 120000, '../templates/images/products/rose.jpg', '2021-05-24 08:50:34', 1, 'This is a famous detail of the rose from the portrait of Marie Antoinette by Louise Elisabeth.'),
+(14, 300, 14, 'Swing of flowers', 800000, '../templates/images/products/painting.jpeg', '2021-05-24 08:52:20', 2, 'This is a famous painting made for auction by Louise Élisabeth Vigée Le Brun.'),
+(15, 300, 14, 'Scenic Beauty', 50000, '../templates/images/products/scenic beauty.jpeg', '2021-05-24 08:57:57', 1, 'A beautiful piece made for general appreciation'),
+(16, 300, 14, 'Red Head Girl', 100000, '../templates/images/products/a red head girl.jpg', '2021-05-24 09:01:11', 2, 'The red head girl painting appreciated worldwide for its graceful nature.'),
+(18, 409, 14, 'Polaroid Camera', 50000, '../templates/images/products/polaroid.jpg', '2021-05-27 18:18:46', 1, 'This is a polaroid camera that is in working condition and is about 7 years old .'),
+(19, 405, 14, 'Antique watch', 2000000, '../templates/images/products/watch ant.jpg', '2021-05-27 18:18:46', 1, 'This is a pocket watch which is almost 30 yrs old and is in working condition.'),
+(20, 409, 14, 'Compass ', 30000, '../templates/images/products/compass.jpg', '2021-05-27 18:18:46', 1, 'A magnetic compass obtained from a ship over 25 years old'),
+(21, 411, 14, 'Roman Coins', 10000, '../templates/images/products/roman.jpg', '2021-05-27 18:18:46', 1, 'All the known pieces of roman currency.The currency is almost 200 years old'),
+(22, 407, 14, 'Antique Pistol ', 150000, '../templates/images/products/maxresdefault.jpg', '2021-05-27 18:18:46', 1, 'A percussion antique handheld pistol that can fire at very high speeds.'),
+(23, 410, 14, 'Xing Dyanasty Jar', 110000, '../templates/images/products/x.jpg', '2021-05-27 18:18:46', 1, 'This is a well preserved Antique jar from Xing Dyanasty With very nice designs and intricate patterns');
+
 -- --------------------------------------------------------
 
 --
@@ -113,6 +151,12 @@ CREATE TABLE `sellers` (
   `seller_aadhar` bigint(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `sellers`
+--
+
+INSERT INTO `sellers` (`seller_id`, `seller_username`, `seller_name`, `seller_pass`, `seller_img`, `seller_email`, `seller_phone`, `seller_addr`, `seller_aadhar`) VALUES
+(14, 'arshdeep', 'Arshdeep Singh', '12345', '../templates/images/seller_dps/arshdeep dp.png', 'arshdeepdgreat@gmail.com', 8754541603, 'A4-405 adora akshaya homes ,Padur,OMR road,Chennai, 603103', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -129,6 +173,13 @@ CREATE TABLE `transactions` (
   `Total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`cust_id`, `seller_id`, `timestamp`, `trans_id`, `product_id`, `Total`) VALUES
+(8, 14, '2021-10-19 04:27:02', 3, 16, 100000),
+(8, 14, '2021-11-18 04:03:34', 4, 14, 800000);
 
 --
 -- Indexes for dumped tables
